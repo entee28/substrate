@@ -41,7 +41,7 @@ func TestHostActorReplacesSameActor(t *testing.T) {
 		t.Fatal(err)
 	}
 	service := &AteomService{
-		tunnel:    &ateomtunnel.Tunnel{Egress: egress, EgressPort: 15001},
+		tunnel:    &ateomtunnel.Tunnel{Egress: egress, EgressPort: 15101},
 		actors:    map[string]*hostedActor{},
 		maxActors: 1,
 	}

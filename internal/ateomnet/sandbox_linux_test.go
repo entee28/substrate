@@ -36,7 +36,7 @@ import (
 	"github.com/agent-substrate/substrate/internal/roottest"
 )
 
-const testEgressPort = 15001
+const testEgressPort = 15101
 
 func TestSandboxSessionDialerAfterClose(t *testing.T) {
 	session := &SandboxSession{}
@@ -323,7 +323,7 @@ func TestCleanupClosesEachDescriptorOnce(t *testing.T) {
 	roottest.Require(t, "creates network namespaces")
 	network, err := SetupSandboxNetwork(context.Background(), SandboxNetworkConfig{
 		ActorUID:   "close-once",
-		EgressPort: 15001,
+		EgressPort: 15101,
 	})
 	if err != nil {
 		t.Fatal(err)

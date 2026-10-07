@@ -73,7 +73,7 @@ func TestRegisterFlags(t *testing.T) {
 		"pflag": {pfCfg, pf.Parse},
 	} {
 		t.Run(name, func(t *testing.T) {
-			if tc.cfg.ListenAddress != ":443" || tc.cfg.ConnectListenAddress != ":8443" || tc.cfg.EgressListenAddress != "0.0.0.0:15001" {
+			if tc.cfg.ListenAddress != ":443" || tc.cfg.ConnectListenAddress != ":8443" || tc.cfg.EgressListenAddress != "0.0.0.0:15101" {
 				t.Errorf("unexpected listen defaults: %+v", *tc.cfg)
 			}
 			if tc.cfg.CredentialBundle == "" || tc.cfg.TrustBundle == "" || tc.cfg.ClientIdentity == "" || tc.cfg.BrokerIdentity == "" || tc.cfg.EgressTrustBundle == "" {
@@ -143,7 +143,7 @@ func testConfig(t *testing.T) Config {
 		TrustBundle:          trust,
 		ClientIdentity:       "spiffe://cluster.local/ns/ate-system/sa/atenet-router",
 		BrokerIdentity:       "spiffe://cluster.local/ns/ate-system/sa/atelet",
-		EgressListenAddress:  "0.0.0.0:15001",
+		EgressListenAddress:  "0.0.0.0:15101",
 		EgressTrustBundle:    trust,
 	}
 }
@@ -174,8 +174,8 @@ func TestStart(t *testing.T) {
 	cfg := testConfig(t)
 	tunnel := startTunnel(t, cfg)
 
-	if tunnel.EgressPort != 15001 {
-		t.Errorf("EgressPort = %d, want 15001", tunnel.EgressPort)
+	if tunnel.EgressPort != 15101 {
+		t.Errorf("EgressPort = %d, want 15101", tunnel.EgressPort)
 	}
 	if tunnel.Ingress == nil || tunnel.Egress == nil || tunnel.DNSRelay == nil {
 		t.Errorf("tunnel is missing a component: %+v", tunnel)

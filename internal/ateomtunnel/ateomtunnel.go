@@ -80,7 +80,7 @@ func RegisterFlags(fs FlagSet) *Config {
 	fs.StringVar(&c.TrustBundle, "atunnel-trust-bundle", "/run/podidentity.podcert.ate.dev/trust-bundle.pem", "Pod identity trust bundle used for router clients and the node-local atelet")
 	fs.StringVar(&c.ClientIdentity, "atunnel-client-identity", installdefaults.RouterSPIFFEID(installdefaults.SystemNamespace), "SPIFFE identity allowed to call actor ingress HTTPS")
 	fs.StringVar(&c.BrokerIdentity, "atunnel-broker-identity", installdefaults.AteletSPIFFEID(installdefaults.SystemNamespace), "SPIFFE identity the node-local atelet must present on the credential broker connection. Override when atelet runs outside the default namespace.")
-	fs.StringVar(&c.EgressListenAddress, "atunnel-egress-listen-address", "0.0.0.0:15001", "Address for transparently intercepted actor egress TCP")
+	fs.StringVar(&c.EgressListenAddress, "atunnel-egress-listen-address", "0.0.0.0:15101", "Address for transparently intercepted actor egress TCP")
 	fs.StringVar(&c.EgressTrustBundle, "atunnel-egress-trust-bundle", "/run/servicedns.podcert.ate.dev/trust-bundle.pem", "Service DNS trust bundle for the remote egress gateway")
 	return c
 }

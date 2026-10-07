@@ -134,7 +134,7 @@ func buildDeploymentApplyConfig(wp *atev1alpha1.WorkerPool, otel ateomOTelSettin
 	}
 
 	args = append(args,
-		"--atunnel-egress-listen-address=0.0.0.0:15001",
+		"--atunnel-egress-listen-address=0.0.0.0:15101",
 		"--atunnel-egress-trust-bundle="+atunnelEgressTrustMountPath+"/trust-bundle.pem",
 	)
 

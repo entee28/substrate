@@ -35,7 +35,7 @@ import (
 func TestSandboxEgressReachesAtunnelOnAnyPort(t *testing.T) {
 	roottest.Require(t, "creates network namespaces")
 	ctx := context.Background()
-	const egressPort = 15001
+	const egressPort = 15101
 
 	n, err := ateomnet.SetupSandboxNetwork(ctx, ateomnet.SandboxNetworkConfig{
 		ActorUID: "66666666-6666-6666-6666-666666666666", Veth: true, EgressPort: egressPort,
